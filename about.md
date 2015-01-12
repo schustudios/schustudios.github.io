@@ -4,8 +4,13 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+My name is Ryan Schumacher, and this is my website. I am a software developer living in Atlanta, Georgia. I graduated from Full Sail University in 2009 with a degree in Game Development, and currently work at [Turner Broadcasting][turner] in Emerging Technology.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+For the last 5 years, I have been primaraly focused on iOS application development. In my spare time, I can be found experimenting with new tools and software, learning a new coding language, or hacking on a game. 
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+This site is hosted by [Github Pages][gh-pages] and runs on [Jekyll][jekyll]. The code for this site can be found in its [Github Repo][repo].
+
+[repo]:			https://github.com/schustudios/schustudios.github.io
+[gh-pages]: http://pages.github.com 
+[jekyll]:   http://jekyllrb.com
+[turner]:		http://www.turner.com/
