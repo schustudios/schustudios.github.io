@@ -25,7 +25,6 @@ changePage = (url, doPushState, defaultEvent) ->
 	# load the new content
 	$("#page-content").load(url + " #page-content > *", ->
 		updateChangePage $("#page-content a")
-
 		)
 
 updateChangePage = (a)-> 
@@ -33,8 +32,6 @@ updateChangePage = (a)->
 			# check if this is an internal link
 			if isInternalLink this.href  
 				changePage $(this).attr("href"),true,e)
-
-
 
 isInternalLink = (url) ->
 	if url.endsWith ".xml" then return false
@@ -49,10 +46,5 @@ $ ->
 
 	# Bind "popstate", it is the browsers back and forward
 	window.onpopstate = (e) ->
-		#if e.state?
 		changePage document.location, false, null
-
-	# Save state on load
-	# history.pushState {type: "custom"}, "Title", document.location.toString()
-
 
