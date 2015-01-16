@@ -1,49 +1,44 @@
 ---
 layout: post
 title:  "Setting up my Jekyll site on Github Pages"
-date: 	2015-01-12 22:00:00
+date: 	2015-01-16 00:21:00
 categories: jekyll setup git github pages
 ---
 
 So, I have just launched my Jekyll site Github Pages, and have decided to make my first post about the process. Untimately, it was a pretty easy setup, but there were a few gotchas that I ran into, like switching my domain from Amazon, and a few configuration pitfalls on my part. 
 
+Below is the process I went through to get my website set up. If you are looking for a step-by-step guyde to setting up a Jekyll blog on Github Pages, there are a few exelent ones found all over the internet, but feel free to follow along.
+
 Install Dependencies
 --------------------
 
-Before you begin, make sure you have the following tools installed on your system:
+Before I began, I had th following software installed on OSX:
 
-*	[Ruby][get-ruby]
+*	[Ruby][get-ruby] I am running 1.9.3, but 2.x.x should work as well
 *	[RubyGems][get-rubygems]
 *	[Git][get-git] ([or use a GUI][get-gitgui])
 *	[Node.js][get-node]
 * On OSX, make sure you have installed Command Line Tools
 
-Next, install the Github-Pages Ruby Gem with the following command:
-
-`$ gem install github-pages`
+I also installed the `github-pages` gem. It contains Jekyll and a bunch of other usefull dependencies.
 
 Create The Repo
 -------------
 
-On your Github account, [create a new repository][git-new]. Name the repository *owner*.github.io, where *owner* is either your username, or the organization name on Github.
+Next, I created a repository for my new project. On Github, I created a new organization named ["SchuStudios"][schustudios-git] because I wanted an orgainization where I can develop code pertaning to my company. On my Github account, I went to [create a new repository][git-new], selected my new organization and named the new repository schustudios.github.io. The first word in your repository must mach the *owner* account it was created under. E.g. http://github.com/owner/owner.github.io
 
-Now clone the newly created repository. From the Terminal, enter:
+Now, I can clone my newly created repository, and begin adding content!
 
-`$ git clone https://github.com/username/username.github.io`
-
-Now that you have the repository setup, it's time to...
-
-Set Up Jekyll
+Setting Up Jekyll
 -------------
 
-In your new repository folder, create a new blog:
+In my new repo, I initialized a new Jekyll blog with the following command:
 
 ~~~~~
-$ cd username.github.io
 $ jekyll new .
 ~~~~~
 
-Checkout your brand new Jekyll blog by running `$ jekyll serve`, and opening [127.0.0.1:4000][jekyll-dev]
+This creates a new, skeleton Jekyll instance that will serve as the basis for my blog. You can preview your new Jekyll blog by running `$ jekyll serve`, and opening [127.0.0.1:4000][jekyll-dev]
 
 At this point, if you run `git status`, you should see a long list of files waiting to be added to the repo. Before doing that, I suggest you update your .gitignore using [Gitignore.io][gitignore]. The following command should download a .gitignore file appropriate for your basic install. Feel free to add languages/platforms/tools your are currently using:
 
@@ -56,14 +51,39 @@ You can now start customizing you blog, adding templates, and writing posts. Whe
 Setting A Custom Domain
 ------------
 
-If you want to give your new site a custom domain, you have two choices: 
+When I started this site, I had a domain, SchuStudios.com, pointing at an AWS instance. I wanted to transfer that domain to be used for this site. To give my new site a custom apex domain, I went to my DNS (GoDaddy), removed the existing Host records, and Aliases, which were being used for subdomains. 
 
-* Use a subdomain, like http://blog.example.com
-* Use an apex domain, like http://example.com
+Next, I created two host records for my domain, pointing to:
 
-To configure either custom domains, you will need to login to your DNS provider.
+* 192.30.252.153
+* 192.30.252.154
 
-### Configuring A Subdomain
+I also added an Alias entry that points www.schustudios.com to my Github Pages domain, SchuStudios.github.io.
+
+With these two changes, http://www.schustudios.com and http://schustudios.com now both point to the Github pages, but there is still one step left.
+
+In my repository, I added a new file, CNAME (all caps) to the root of the directory, containing only the custom domain of my blog: `schustudios.com`
+
+With this entry in my repo, pushed to the remote server, Github Pages now serves my blog to http://schustudios.com and recdirects http://www.schustudios.com to the former Domain. These changes may take about an hour to propagate.
+
+
+Basic Jekyll Configurations
+------------
+
+Now that I have my pretty new domain setup for my blog, I can update the Jekyll settings to use that domain.
+
+It's time to update `_config.yml`, found in the root of my repository. I went ahead and updated the default settings on this page to give the site a little more information about me, like my name, email, twitter, etc.
+
+I changed the URL to "http://schustudios.com". I also added the permalink settings. I didn't really like the default permalink setting for the blog posts, which is normaly something like "/category/otherCategory/2015/01/16/myTitle.html". It is too long for my tastes. I wanted something short, and concise, like "/blog/myTitle". To get that path, set `permalink: /blog/:title`.
+
+For more information on setting your blog's permalink, check it out on the [Jekyll documentation][jekyll-permalink].  
+
+Over So Soon?
+---
+
+I will keep posting about updates that I make to the site. Hopefully, that should give me more than a few posts worth of content.
+
+See you soon!
 
 
 
@@ -84,3 +104,5 @@ To configure either custom domains, you will need to login to your DNS provider.
 [//]: # (Link to localhost)
 
 [jekyll-dev]: http://127.0.0.1:4000
+[schustudios-git]: http://github.com/schustudios
+[jekyll-permalink]: http://jekyllrb.com/docs/permalinks/

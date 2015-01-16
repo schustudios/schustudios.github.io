@@ -23,8 +23,9 @@ changePage = (url, doPushState, defaultEvent) ->
 		history.pushState {type: "custom", uid: 199}, "Title", url
 
 	# load the new content
-	$("#page-content").load(url + " #page-content > *", ->
+	$("#page-content").load(url + " #page-content > *", (response) ->
 		updateChangePage $("#page-content a")
+		document.title = response.match("<title>(.*?)</title>")[1]
 		)
 
 updateChangePage = (a)-> 
