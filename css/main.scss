@@ -42,11 +42,20 @@ $on-laptop:        800px;
     }
 }
 
+$base-distance: 25px;
 
+#page-content .wrapper {
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  -moz-animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  -o-animation-name: fadeInUp;
+}
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
         "layout",
-        "syntax-highlighting"
+        "syntax-highlighting",
+        "animate"
 ;

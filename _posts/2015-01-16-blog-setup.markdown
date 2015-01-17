@@ -5,7 +5,7 @@ date: 	2015-01-16 00:21:00
 categories: jekyll setup git github pages
 ---
 
-![Jekyll](http://jekyllrb.com/img/logo-2x.png)
+![Jekyll](/assets/i/jekyll.png)
 
 So, I have just launched my Jekyll site on Github Pages, and decided to make my first post about the process. Untimately, it was a pretty easy setup, but there were a few gotchas that I ran into, like switching my domain from Amazon, and a few configuration pitfalls on my part. 
 

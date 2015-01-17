@@ -25,6 +25,7 @@ changePage = (url, doPushState, defaultEvent) ->
 	# load the new content
 	$("#page-content").load(url + " #page-content > *", (response) ->
 		updateChangePage $("#page-content a")
+		# Update the title
 		document.title = response.match("<title>(.*?)</title>")[1]
 		)
 
@@ -32,14 +33,19 @@ updateChangePage = (a)->
 	a.on("click", (e) -> 
 			# check if this is an internal link
 			if isInternalLink this.href  
+				# Load the href and add to our history
 				changePage $(this).attr("href"),true,e)
 
 isInternalLink = (url) ->
+	# Ignore XML files
 	if url.endsWith ".xml" then return false
+	# check if the url links to our own origin
 	if url.startsWith document.location.origin then return true
+	# default to false
 	false
 
 $ ->
+	# Log when the page is loaded
 	console.log new Date().toString()
 
 	# Bind all links to the changepage function except rel=external
