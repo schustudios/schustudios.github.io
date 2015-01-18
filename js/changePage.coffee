@@ -22,12 +22,21 @@ changePage = (url, doPushState, defaultEvent) ->
 	if doPushState 
 		history.pushState {type: "custom", uid: 199}, "Title", url
 
-	# load the new content
-	$("#page-content").load(url + " #page-content > *", (response) ->
-		updateChangePage $("#page-content a")
-		# Update the title
-		document.title = response.match("<title>(.*?)</title>")[1]
+	# Hide the current page content
+	$(".page-content,.site-footer").fadeOut 'fast', () ->
+		# load the new content
+		$(".page-content").load(url + " .page-content > *", (response) ->
+			updateChangePage $(".page-content a")
+			# Update the title
+			document.title = response.match("<title>(.*?)</title>")[1]
+			# Hide the loading bar
+			$('#load').fadeOut 'fast'
+			# show the new page content
+			$('.page-content,.site-footer').fadeIn 'fast'
 		)
+	# show loading bar while the content loads
+	$('#load').fadeIn 'fast'
+
 
 updateChangePage = (a)-> 
 	a.on("click", (e) -> 

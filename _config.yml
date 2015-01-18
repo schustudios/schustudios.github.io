@@ -13,3 +13,6 @@ permalink: /blog/:title
 markdown: kramdown
 
 gems: [jekyll-sitemap]
+
+# Custom settings
+image_path: "/assets/i/"

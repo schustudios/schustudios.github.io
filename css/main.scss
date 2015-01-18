@@ -41,9 +41,9 @@ $on-laptop:        800px;
         @content;
     }
 }
-
+// Begind custom content
 $base-distance: 25px;
-
+/*
 #page-content .wrapper {
   -moz-animation-duration: 1s;
   -webkit-animation-duration: 1s;
@@ -51,6 +51,19 @@ $base-distance: 25px;
   -webkit-animation-name: fadeInUp;
   -o-animation-name: fadeInUp;
 }
+*/
+#load {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: url({{site.image_path}}loader.gif);
+    width: 43px;
+    height: 11px;
+    text-indent: -9999em;
+}
+
+// end custom content
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
