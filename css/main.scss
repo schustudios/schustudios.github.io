@@ -53,14 +53,17 @@ $base-distance: 25px;
 }
 */
 #load {
-    display: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background: url({{site.image_path}}loader.gif);
-    width: 43px;
-    height: 11px;
-    text-indent: -9999em;
+  display: none;
+  position: fixed;
+  background: url({{site.image_path}}loader.gif);
+  width: 24px;
+  height: 24px;
+  text-indent: -9999em;
+  top: 50%;
+  left: 50%;
+  margin-top: -12px;
+  margin-left: -12px;
+  transform: scale(2);
 }
 
 // end custom content
