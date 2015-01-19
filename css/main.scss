@@ -41,17 +41,14 @@ $on-laptop:        800px;
         @content;
     }
 }
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout",
+        "syntax-highlighting"
+        ;
 // Begind custom content
-$base-distance: 25px;
-/*
-#page-content .wrapper {
-  -moz-animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  -moz-animation-name: fadeInUp;
-  -webkit-animation-name: fadeInUp;
-  -o-animation-name: fadeInUp;
-}
-*/
 #load {
   display: none;
   position: fixed;
@@ -67,11 +64,3 @@ $base-distance: 25px;
 }
 
 // end custom content
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting",
-        "animate"
-;
