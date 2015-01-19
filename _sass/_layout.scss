@@ -32,7 +32,11 @@
     }
 
     .page-link {
-        color: $text-color;
+        color: #fff; //was $text-color;
+        @include media-query($on-palm) {
+            color: $text-color;
+        }
+
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the first one

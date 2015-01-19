@@ -63,4 +63,15 @@ $on-laptop:        800px;
   transform: scale(2);
 }
 
+.site-header {
+  background-color: #000
+}
+
+.site-title  {
+  color: #fff;
+  &:visited {
+    color: #fff;
+  }
+}
+
 // end custom content
