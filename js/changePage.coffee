@@ -17,15 +17,24 @@ window.onload = ->
 	# Bind all links to the changepage function except rel=external
 	updateClick $("a")
 
-	# Bind "popstate", it is the browsers back and forward
-	window.onpopstate = (e) ->
-		changePage document.location, false, null
+# Bind "popstate", it is the browsers back and forward
+window.onpopstate = (e) ->
+	changePage document.location, false, null
 
-	# disable bfcache
-	window.addEventListener 'unload', (e) ->
-	  console.log 'unload'
+# Updates the click event of the provided element
+# to call changePage, if it is an internal link
+updateClick = (a)-> 
+	a.on("click", (e) -> 
+		# Browser compatibility
+		e = e || window.event
+		# check if this is an internal link
+		if isInternalLink this.href  
+			# Load the href and add to our history
+			changePage $(this).attr("href"),true,e)
 
-
+# Checks if the provided link is internal,
+# and is a kind of link we want to load.
+# Currently ignores '.xml' files
 isInternalLink = (url) ->
 	# Ignore XML files
 	if url.endsWith ".xml" then return false
@@ -41,16 +50,6 @@ isInternalLink = (url) ->
 	# default to false
 	return false
 
-# Updates the click event of the provided element
-# to call changePage, if it is an internal link
-updateClick = (a)-> 
-	a.on("click", (e) -> 
-		e = e || window.event
-		# check if this is an internal link
-		if isInternalLink this.href  
-			# Load the href and add to our history
-			changePage $(this).attr("href"),true,e)
-
 # Called when loading an internal link
 # Adds new page to the browser history
 # and loads the content of the new page
@@ -61,7 +60,7 @@ changePage = (url, doPushState, defaultEvent) ->
 	console.log "doPushState:" + doPushState
 
 	# check if history is supported
-	if !history.pushState then return true
+	if !history.pushState then return true # Bail Out
 
 	# Stop default event from executing
 	if defaultEvent? then defaultEvent.preventDefault()
@@ -85,8 +84,6 @@ changePage = (url, doPushState, defaultEvent) ->
 	# show loading bar while the content loads
 	$('#load').fadeIn 'fast'
 
-
-
-# Helper Methods
+# String Helper Methods
 String::startsWith ?= (s) -> @[...s.length] is s
 String::endsWith   ?= (s) -> s is '' or @[-s.length..] is s
