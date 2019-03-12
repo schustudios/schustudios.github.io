@@ -1,0 +1,36 @@
+---
+layout: post
+title:  "DevNexus 2019"
+date:   2019-03-12 09:00:00
+categories: misc devnexus 
+---
+
+Walking into the Sold Out DevNexus conference, I immediately began having an existential crisis. It’s hard to remember the last time I was surrounded by so many talented IT professionals, and the point was driven home when the Keynote speaker Venkat Subramaniam
+asked the age old question, Who Are We? His answer: Problem Solvers, and I cannot agree more.
+
+The two days of the conference are loaded down with more than a dozen tracks, so I was only able to attend a few of the talks, and I tried to stick to topics that were more focused on general development topics. As well as Agile Processes.
+
+Here is an overview of a few of the talks I attended:
+
+**Debugging with the Scientific Method** by [Stuart Halloway](https://twitter.com/stuarthalloway)
+
+Stuart spent the hour discussing how developers can apply the principles of the scientific method to debugging their programs. While we have many tools available to us that allow us to view what the problems in our apps may be, by applying good techniques, developers can reduce the amount of time and effort required to solve presented problems. This revolves around clearly stating what the problem is, formulating a hypothesis as to what the problem is and creating experiments to validate this hypothesis. 
+
+My favorite part was Stuart life/debugging advice:
+* Make a plan.
+* Write it down.
+* Do one thing at a time.
+
+
+**¡Three Amigos!** By M. Jeff Wilson and Danny James
+
+This talk went over the Three Amigos meeting, and the larger ideas of how to run Business-Driven Development processes. The Duo went over to write Gerkin scenarios, and how to use those gerkins in the team. They even went through a fun exercise of running a Three Amigos meeting with the audience.
+
+
+**An Evolutionary Approach To Managing Software Entropy** by [David Laribee](https://twitter.com/laribee)
+
+This was a talk was part of the Architecture track, and spoke about strategies for tackling Technical Debt in our projects. The speaker made a great observation about how, like financial debt, technical debt must be paid back eventually. He also provided a couple of interesting strategies for tackling Technical Debt.  
+
+
+Dev Nexus was a lot of fun this year. With so many great talks, and lots of smart people. I would recommend the conference to everyone!
+
