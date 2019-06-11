@@ -1,0 +1,43 @@
+---
+layout: post
+title:  "WWDC 2019"
+date:   2019-06-11 09:00:00
+categories: wwdc apple developer swift swiftui 
+---
+
+A lot of amazing new technology was announced by Apple in this year’s WWDC. Here is a rundown of some of the new technology I am excited about:
+
+**New In Swift**
+
+Apple’s newest update to Swift introduces a lot of new language features I am looking forward to using in my own day to day programing. 
+
+I love the builder pattern, but sometimes can find writing builders to be a bit tedious, especially just for one-off classes. I hope to see `@functionBuilder` simplify this process. And the new `@state` keyword will finally bring data binding to the Swift language. 
+
+[Swift by Sundell](https://www.swiftbysundell.com/posts/the-swift-51-features-that-power-swiftuis-api) has a great article on this! 
+
+Of course, with Swift 5.0, we finally got ABI Stability, but for the release of Swift 5.1, GitHub now allows users to host Swift Packages! This will be a convenient and inexpensive way for developers to distribute their packages. 
+
+I can’t forget about the Combine API. With so much new stuff, I haven’t had much time to dig into the features yet. This framework Sherlocks RXSwift, and bring native support for MVVM architecture to the platform.
+
+**SwiftUI**
+
+The new SwiftUI API and tools completely stole the show for me. This is a revolutionary new way to build the UI for our iOS apps (unless you have used Flutter apparently). This new tool heavily leverages Swift 5.1 features to provide a clean, declarative syntax for building impressive UI. I look forward to getting to use this into an app, after I can drop support for iOS 12.
+
+Combine (pun intended) this with the new live preview in XCode 11, and I believe this will make UI development immensely easier, although I feel like this is just the first step for apple. 
+
+While I like the idea of being able to write code to preview the changes in the editor, I think keeping that code in the same file is inviting lots of Github conflicts. Teams may want to update their style guides to include an opinion on what should fo into the PreviewProvider. I am sure XCode 12 will introduce a new functionality to solve this dilemma. 
+
+**iPadOS**
+
+I love the idea of separating the iPad features into their own OS. The Phone and Tablet features have been separating for a while now, and it’s great to see Apple separate the platforms. I look forward to see what features apple brings to this new OS in the future. 
+
+And the new Check Box to make an app run on the Mac is going to open up a whole new market for many native app developers.
+
+**Everything Else**
+
+This post doesn’t even begin to touch many of the new frameworks and features Apple will be providing in iOS 13. 
+* RealityKit and PencilKit both bring new functionality to the platform that will allow us to interact with our uses in new ways. 
+* MetricKit will let developers get more details on how their apps perform in the real world. 
+* BackgroundTasks, Apple CryptoKit and the new WiFi framework seem to be repackaging old interfaces, and providing our apps with new functionality we can provide our users.
+
+I really believe iOS 13 will enable the iPhone to interface with us and the real world in new, creative ways, and enable developers to focus on building more engaging, premium experiences like we never have before.
