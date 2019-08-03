@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "What's In A Git Commit?"
-date:   2019-08-03 09:00:00
+date:   2019-08-03 12:00:00
 categories: git commit hash 
 ---
 
