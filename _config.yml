@@ -4,7 +4,7 @@ email: SchuStudios@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   I am Ryan Schumacher; Welcome to my website. I am a code monkey living in Atlanta, Georgia. I created this blog as a way to organize and share my thoughts on new technology and software. 
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://schustudios.com" # the base hostname & protocol for your site
+url: "https://schustudios.com" # the base hostname & protocol for your site
 twitter_username: Steg132
 github_username:  Steg132
 permalink: /blog/:title
