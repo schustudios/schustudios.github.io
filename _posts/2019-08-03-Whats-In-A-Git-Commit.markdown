@@ -21,11 +21,12 @@ A commit is referred to by its hash. The hash is generated using a SHA-1 hash al
 
 ## Git Objects
 
-Before we can dive into the contents of the git commit, we need to understand how git manages objects. In Git, everything is hashed, and referred to by that hash. There are three types of objects:
+Before we can dive into the contents of the git commit, we need to understand how git manages objects. In Git, everything is hashed, and referred to by that hash. There are four types of objects:
 
 - **Commit**:  The subject of this article. 
 - **Tree**: This is how git represents directories in a project. Each tree contains a list of git objects, similar to how directories contain a list of files and folders.
 - **Blob**: This represents files stored in the Project.   
+- **Tag**: Very similar to a commit, but points to a commit object, rather than a tree object. 
 
 Git effectively operates as a large key/value store, where any object can be reference by its hash. The contents of these files are stored in the `.git/objects/` directory of your git project by their hash.  
 
