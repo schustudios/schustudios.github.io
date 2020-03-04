@@ -16,3 +16,7 @@ gems: [jekyll-sitemap]
 
 # Custom settings
 image_path: "/assets/i/"
+
+# FOR NBA DEVELOPMENT
+include: 
+  - .well-known
