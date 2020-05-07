@@ -64,6 +64,6 @@ class AppDelegate: RemoteNotificationIntermediaryAppDelegate, ConfigureSceneInte
 }
 ```
 
-You can find the IntermediaryAppDelegate package on [GitHub here](https://github.com/steg132/IntermediaryAppDelegate)
+You can find the IntermediaryAppDelegate package on [GitHub here](https://github.com/schustudios/IntermediaryAppDelegate)
 
-And a simple [Sample Project here](https://github.com/steg132/ModularApp)
+And a simple [Sample Project here](https://github.com/schustudios/ModularApp)
