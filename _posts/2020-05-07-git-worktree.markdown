@@ -21,9 +21,9 @@ _WHAT EVER CAN I DO?_
 
 ## The Solution
 
-Git Worktree is a fantastic tool that any developer working with git on a regular basis needs to keep in their back pocket. Git Worktree allows developers to manage multiple working trees at a time. This lets developers checkout different branches, tags, or commits into directories outside you main working tree.
+Git Worktree is a fantastic tool that any developer working with git on a regular basis needs to keep in their back pocket. It allows developers to manage multiple working trees at a time. This lets developers checkout different branches, tags, or commits into directories outside your main working tree.
 
-While the Git Worktrees exist in different directories, they all still refer to the same Git Database. This means making new commits from a worktree, fetching the latest changes from remote repository, or adding new branched to your local repository will be reflected in other worktrees. Plus, you don't need to have multiple copies of the entire repository taking up space on your hard drive.
+While the Git Worktrees exist in different directories, they all still refer to the same Git Database. This means making new commits from a worktree, fetching the latest changes from the remote repository, or adding new branches to your local repository will be reflected in other worktrees. Plus, you don't need to have multiple copies of the entire repository taking up space on your hard drive.
 
 # What is a Working Tree?
 
