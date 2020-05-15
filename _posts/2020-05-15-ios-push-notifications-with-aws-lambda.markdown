@@ -1,15 +1,19 @@
 ---
 layout: post
-title:  "iOS Push Notifictions With AWS Lambda"
-date:   2020-04-25 9:00:00
-categories: ios push notification aws lambda node.js
+title:  "iOS Push Notifications With AWS Lambda"
+date:   2020-05-15 9:00:00
+categories: ios push notification aws lambda python
 ---
 
 Push notifications are an important part of modern mobile apps. While there are many services available for incorporating push notifications into our apps, like Firebase and Airship, some products still opt to roll their own push notification services. 
 
-For developers to test and build these integrations quickly, without waiting for changes on backend services, we may need to set up our own small scale service, where our team can push to our own development devices. With this service, we can quickly debug our app's responses to push notifications, and test out new features, like deep linking or background updates, without waiting on updates to backend services.
+For developers to test and build these integrations quickly, without waiting for changes on backend services, we may need to set up our own small scale service. This way, our team can push to our own development devices. With this service, we can quickly debug our app's responses to push notifications, and test out new features, like deep linking or background updates, without waiting on updates to backend services.
 
 This article will quickly help developers set up an AWS Lambda that will send a push notification to an app signed with the developer or production certificates. This will be accomplished using the [Simple Push][simple-push-repo] service, a small Python module which runs on Amazon Lambda and proxies requests to APNs.
+
+# How It Works
+
+Spin up a Lambda on AWS, and an API Gateway to pass POST requests through to the Lambda. The Lambda will parse the JSON object in the POST body, and build a request to APNs. Finally, the iOS app will receive the notification from APNs. 
 
 This demo uses the following technologies:
 - [AWS Lambda][aws_lambda]: Run code without servers
@@ -29,7 +33,7 @@ Developers only need to add the remote notification methods to the app delegate:
 
 For this article, I built a very simple example app, which implements background push notifications and support for background alerts. While your app might not need both of these features, the Simple Push service can support them. You do not need to use this example app, and can follow along with the rest of this article as long as you can retrieve the Device Token.
 
-Find the code for the [sample app here][example-ios-repo]: 
+Find the code for the [sample app here][example-ios-repo].
 
 # Get The Certificate
 
@@ -87,7 +91,7 @@ For more instructions on how to generate the SSL Certificates, checkout [Apple's
 
 Now that the SSL Certificates have been generated, it's time to set up the Lambda Service! 
 
-I have a [Simple Push service][simple-push-repo] that kicks off the requests to APNS. But you can also build your own! If you are using python, I recommend the [APNS2][apns2] module. 
+I have a [Simple Push service][simple-push-repo] that kicks off the requests to APNs. But you can also build your own! If you are using python, I recommend the [APNS2][apns2] module. 
 
 With the Simple Push repo, place the Production and Development certificates into the `cert/` directory. Name the Development certificate `pushcert_dev.p12`, and the Production certificate `pushcert_prod.p12`. Run `./package.sh` from the root of the repo, and see that the `function.zip` file was produced. This file contains all of the dependencies, certificates, and the lambda function compressed, and ready to upload to Amazon Lambda. 
 
@@ -133,14 +137,14 @@ At the top of the screen, see the Invoke URL. This is the URL we will post to fo
 
 Finally, it is time to test out the new Lambda, and send the first Push Notification. 
 
-If using the Simple Push example, this is pretty easy. Simple Push has a very lightweight interface, and allows for maximum flexibility in sending messages to APNS. Just build a PUT request to the API Gateway generated above. The Simple Push service basicity takes the values in the JSON request, and uses them to build the URL and the Headers for the APNS request. The Body of the APNS request is taken from the object value of the "apns" key. If used carefully, this is a great tool for testing out different Push Notification formats when working with more experimental Push Notification features.
+If using the Simple Push example, this is pretty easy. Simple Push has a very lightweight interface, and allows for maximum flexibility in sending messages to APNs. Just build a PUT request to the API Gateway generated above. The Simple Push service basicity takes the values in the JSON request, and uses them to build the URL and the Headers for the APNs request. The Body of the APNs request is taken from the object value of the "apns" key. If used carefully, this is a great tool for testing out different Push Notification formats when working with more experimental Push Notification features.
 
 ```
 {
     "topic": Usually the Bundle Identifier. Check out the Apple Documentation for details.
     "token_hex": Device identifier notification is being sent.
     "environment": "production" or "development". Sets which Apple API is being hit.
-    "apns": This object serves as the body of the APNS request. Fill it out as you would a normal APNS request
+    "apns": This object serves as the body of the APNs request. Fill it out as you would a normal APNs request
 
     # Optional Values
     "apns-id": A canonical UUID that identifies the notification. If there is an error sending the notification
