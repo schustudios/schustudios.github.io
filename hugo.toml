@@ -1,0 +1,15 @@
+baseURL = 'https://abyteofcode.com/'
+languageCode = 'en-us'
+title = 'A Byte Of Code'
+theme = 'coming-soon'
+
+[params]
+    title = "A Byte Of Code"
+    description = "Musings from the mind of Ryan Schumacher"
+    favicon = ""
+    message = "Hungry? Take a byte soon!"
+    release = "Mar 31, 2024"
+
+socialIcons = [
+    {name = "email", url = "ryan@abyteofcode.com"},
+]
